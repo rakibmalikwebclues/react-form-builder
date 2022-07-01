@@ -7,6 +7,7 @@ import {
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
 import Login from "./pages/Login"
+import Create from "./pages/Create"
 
 //Importing pages
 import Home from "./pages/Home"
@@ -22,6 +23,7 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route path="/signup" component={Signup} />
               <Route path="/login" component={Login} />
+              <Route path="/create" component={Create} />
             </Switch>
           </div>
         </Router>
