@@ -8,6 +8,8 @@ import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
 import Login from "./pages/Login"
 import Create from "./pages/Create"
+import Forms from "./pages/Forms"
+import Fill from "./pages/Fill"
 
 //Importing pages
 import Home from "./pages/Home"
@@ -24,6 +26,8 @@ function App() {
               <Route path="/signup" component={Signup} />
               <Route path="/login" component={Login} />
               <Route path="/create" component={Create} />
+              <Route path="/forms" component={Forms} />
+              <Route path="/fill/:id" component={Fill} />
             </Switch>
           </div>
         </Router>

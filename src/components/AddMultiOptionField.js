@@ -53,7 +53,7 @@ function AddMultiOptionField({ inputType, add, close }){
             <div className="input grey-container p-1">
                 <input type="text" className="mb-1" placeholder="Enter a option" onChange={e => setOption(e.target.value)} ref={inputRef} />
                 {opterr && <p className="err mb-1 text-small">{opterr}</p>}
-                <button class="btn" onClick={addOption}>Add Option</button>
+                <button className="btn" onClick={addOption}>Add Option</button>
             </div>
             <div className="input inline">
                 <label>Required: </label>
