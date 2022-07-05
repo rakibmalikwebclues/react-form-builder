@@ -41,7 +41,7 @@ function Create(){
         setFormModel(_model)
     }
 
-    const inputTypes = ["short-text", "long-text", "number", "multioption-singleanswer", "multioption-multianswer", "file"]
+    const inputTypes = ["short-text", "long-text", "number", "multioption-singleanswer", "multioption-multianswer"]
 
     const createForm = async () => {
         if(loading) return
@@ -76,16 +76,6 @@ function Create(){
                 </div>
 
                 {formModel.fields.length > 0 && <RenderPlainForm model={formModel} />}
-
-                <div className="input">
-                    <label>End message</label>
-                    <input type="text" placeholder="What should user see after submitting the form" onChange={e => updateObjState(setFormModel, formModel ,"endMessage", e.target.value)} />
-                </div>
-
-                <div className="input">
-                    <label>Validity(Optonal)</label>
-                    <input type="number" placeholder="For how many hours the form should be fillable" onKeyDown={e => {if(e.key==='.' || e.key==='-'){e.preventDefault()}}} onChange={e => updateObjState(setFormModel, formModel ,"expiration", e.target.value)} />
-                </div>
             </div>
 
             <p className="mb-2 text-right">
