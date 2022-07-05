@@ -31,10 +31,13 @@ export const getForms = async () => {
     return forms
 }
 
-export const getForm = async ops => {
+export const getForm = async (ops,sequenceKey) => {
     let docs = await firestore.collection("forms").get(ops)
-    let doc = docs.docs[0]
+    console.log("docs=================>",docs); 
+    let doc = docs.docs[sequenceKey]
+    
     doc = {...doc.data(), id: doc.id }
+    console.log("doc=================>",doc);
     return doc
 }
 

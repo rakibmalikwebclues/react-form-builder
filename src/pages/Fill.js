@@ -7,20 +7,23 @@ import { getForm } from "../db"
 import RenderReactiveForm from '../components/RenderReactiveForm'
 
 import { expired } from '../utils'
+import { useLocation } from 'react-router-dom'
 
 function Fill(){
     const { id } = useParams()
-
+    
     const [form, setForm] = useState(null)
     const [msg, setMsg] = useState('')
     const [submitted, setSubmitted] = useState(false)
     const [loading, setLoading] = useState(true)
 
+    const sequenceKey = new URLSearchParams(useLocation().search).get('sequenceKey');
+
     useEffect(() => {
         if(!localStorage.getItem('gfc-user')) return
         const fetchData = async () => {
             try{
-                let frm = await getForm({ id })
+                let frm = await getForm(id,sequenceKey)
                 setForm(frm)
                 setLoading(false)
             }catch(e){
@@ -29,7 +32,7 @@ function Fill(){
             }
         }
         fetchData()
-    }, [id])
+    }, [id,sequenceKey])
 
     return (
         <div>

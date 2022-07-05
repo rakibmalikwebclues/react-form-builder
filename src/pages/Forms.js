@@ -7,7 +7,7 @@ function Forms(){
     const [forms, setForms] = useState([])
     const [msg, setMsg] = useState('')
     const [loading, setLoading] = useState(true)
-
+    
     useEffect(() => {
         if(!localStorage.getItem('gfc-user')) return
         const fetchData = async () => {
@@ -28,6 +28,8 @@ function Forms(){
         setForms(forms.filter(form => form.id !== id))
     }
 
+    
+
     return (
         <div>
             <h1 className="heading">My Forms</h1>
@@ -36,9 +38,12 @@ function Forms(){
                 : msg ? <h3 className="msg mt-1">{msg}</h3> 
                 : (
                     <div className="cards-container">
+                        
                         { forms.length > 0 ? (
-                            forms.map(form => (
-                                <FormCard key={form.id} form={form} onDelete={onFormDelete} />
+                            forms.map((form,index) => (
+                                
+                                <FormCard key={form.id} form={form} onDelete={onFormDelete}  sequenceKey={index} />
+                                
                             ))
                         ) : <h3 className="msg mt-1">You haven't created any forms yet</h3> }
                     </div>

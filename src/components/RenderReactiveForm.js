@@ -8,9 +8,14 @@ import MultiOptionField from "./MultiOptionField"
 import FileField from "./FileField"
 
 function RenderReactiveForm({ model, onSubmitted }){
+
+    console.log("model ==========================>", model);
+    
+    
     const [fillableModel, setFillableModel] = useState(createFillableModel(model))
     const [loading, setLoading] = useState(false)
     const [err, setErr] = useState("")
+    console.log("fillableModel ==========================>", fillableModel);
 
     const handleSubmit = async () => {
         setErr("")
